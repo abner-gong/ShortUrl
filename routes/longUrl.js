@@ -10,6 +10,7 @@ var count = urlDB['count'];
 var transform = require('../utils/transform');
 var id2short = transform['id2short'];
 var id = 0;
+var port = require('../config')['port']
 
 //获取MongoDB当前的文档数量，从而初始化id
 async function initId(){
@@ -28,7 +29,7 @@ router.post('', async function(req, res, next) {
 			if(queryRes.longUrl == longUrl){
 				if(queryRes.shortUrl == shortUrl)
 					id++;
-				fullShortUrl = req.host + ":/" + queryRes.shortUrl;
+				fullShortUrl = req.host + ":" + port + "/" + queryRes.shortUrl;
 				res.render('shortUrl', { shortUrl: fullShortUrl });
 			}
 			else{
