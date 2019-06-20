@@ -44,7 +44,7 @@ All the configuration information is in the file of "config.js".
 
 (2) git clone https://github.com/abner-gong/ShortUrl.git
 
-(3) npm install package.json
+(3) npm install
 
 (4) npm start
 
