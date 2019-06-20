@@ -12,7 +12,7 @@ router.get('', async function(req, res, next) {
   if(queryRes)
 	  res.redirect(301, 'http://'+queryRes.longUrl);
   else
-	  next(createError(404));	
+	  res.render('index', { title: "您请求的短网址并不存在" });
 });
 
 module.exports = router;
