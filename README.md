@@ -124,3 +124,14 @@ All the configuration information is in the file of "config.js".
 
         shortUrl.ejs ---page when it return a short url
 
+# Schema
+const urlSchema = new Schema({
+    longUrl : { type: String, required: true, index: true, unique: true},
+    shortUrl : { type: String, required: true, index: true, unique: true}
+});
+
+# API
+前面有写，这里再重复一下
+1. get '/': 将显示首页，里面有一个textbox和一个按钮，单击按钮，会将内容提交给下一步
+2. post '/url' 将长网址提交：插入数据库并返回，如果已经存在则不插入，直接返回
+3. get '/00000' 直接跳转到长网址，如果不存在则返回错误提示
